@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>gl smoke</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<canvas id="c"></canvas>
+<script src="../src/js/00-core.js"></script>
+<script src="../src/js/20-gen.js"></script>
+<script src="../src/js/30-gl.js"></script>
+<script>
+try {
+  const r = SR.gl.init(document.getElementById('c'));
+  r.resize(1280, 720);
+  r.add('terrain', SR.gen.terrain(7)); r.add('ruins', SR.gen.ruins(7)); r.add('heroine', SR.gen.heroine(7));
+  r.add('whale', SR.gen.whale(7)); r.add('sky', SR.gen.sky(7)); r.add('ring', SR.gen.ring(7));
+  const q = new URLSearchParams(location.search), t = +(q.get('t') || 2);
+  const eye = (q.get('eye') || '3,4,-14').split(',').map(Number), tg = (q.get('tg') || '0,12,80').split(',').map(Number);
+  const G = { view: SR.mat4.lookAt(eye, tg, [0, 1, 0]), proj: SR.mat4.perspective(1.0, 16 / 9, 0.05, 200000), eye, t,
+    exposure: 1, fog: 1500, pulses: [{ x: 0, y: 0.2, z: 0, t0: 0, k: 0.9 }], pulseSpeed: 30, pulseLife: 6 };
+  const reveal = +(q.get('reveal') || 0.35);
+  const skyM = SR.mat4.trs(eye);
+  const only = q.get('only');
+  const draws = [
+    { name: 'sky', model: skyM, params: { reveal: 1, size: 0, alpha: 0.9 } },
+    { name: 'ring', params: { reveal: 1, size: 60, alpha: 0.5 } },
+    { name: 'terrain', params: { reveal, size: 0.08 } },
+    { name: 'ruins', params: { reveal, size: 0.18 } },
+    { name: 'whale', model: SR.mat4.trs([60, 140, 700], 0.6), params: { reveal: 1, size: 0.5, wave: [6, 1.1, 0.8, 0] } },
+    { name: 'heroine', params: { reveal: 1, size: 0.006, occlude: +(q.get('occ') ?? 0.02), tint: [1.5, 1.5, 1.5] } },
+  ];
+  r.frame(G, only ? draws.filter(d => d.name === only) : draws);
+  document.title = 'OK';
+} catch (e) { document.title = 'ERR ' + e.message; document.body.insertAdjacentHTML('beforeend', '<pre style="color:#f88">' + e.stack + '</pre>'); }
+</script>

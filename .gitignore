@@ -1,0 +1,9 @@
+# the original performance files (MIDI, WAV) and local tools are not published
+media/*.mid
+media/*.wav
+tools/ffmpeg/
+# rendered videos and measurement output
+video/
+dist/*.csv
+__pycache__/
+node_modules/
