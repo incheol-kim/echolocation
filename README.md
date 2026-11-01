@@ -92,4 +92,6 @@ tools/                build, bake, data, export and check scripts
 
 Music: Incheol Kim — solo piano improvisation, *Echolocation*.
 
+Visuals: Directed by Incheol Kim, coded with Claude Code.
+
 © 2026 Incheol Kim. All rights reserved.
