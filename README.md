@@ -1,5 +1,7 @@
 # Echolocation — Solo Piano Improvisation
 
+<img width="1280" height="720" alt="Echolocation_thumbnail" src="https://github.com/user-attachments/assets/fbfa7847-b56d-415e-aa10-d14a79decd0d" />
+
 A point-cloud visual piece for a 5:55 improvised piano solo by **[Incheol Kim](https://linktr.ee/incheol)**.
 
 A researcher stands alone on an alien world. Every note she hears goes out as a sonar pulse, and what it touches comes
