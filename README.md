@@ -1,6 +1,6 @@
 # Echolocation — Solo Piano Improvisation
 
-A point-cloud visual piece for a 5:55 improvised piano solo by **Incheol Kim**.
+A point-cloud visual piece for a 5:55 improvised piano solo by **[Incheol Kim](https://linktr.ee/incheol)**.
 
 A researcher stands alone on an alien world. Every note she hears goes out as a sonar pulse, and what it touches comes
 back as points of light: the sand at her feet, a broken stele with a worn handprint, the ruins of a city buried under
